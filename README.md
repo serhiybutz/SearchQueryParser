@@ -11,6 +11,8 @@
 
 `SearchQueryParser` is a simple Google-like search-engine-query [parser](https://en.wikipedia.org/wiki/Parsing#Parser) for Swift. It takes a search string and builds its [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree).
 
+![](demo.gif)
+
 ## Features
 
 - Scannerless (lexerless)
