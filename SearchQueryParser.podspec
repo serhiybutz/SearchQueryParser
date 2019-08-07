@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name         = 'SearchQueryParser'
-  spec.version      = '1.0.0'
-  spec.summary      = 'A simple Google-like search-engine-query parser for Swift'
+  spec.version      = '1.1.0'
+  spec.summary      = 'A simple Google-like search-engine-query parser and marker for Swift'
   spec.homepage     = 'https://github.com/SergeBouts/SearchQueryParser'
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
   spec.author       = { 'Serge Bouts' => 'sergebouts@gmail.com' }

@@ -303,7 +303,4 @@ extension SearchQueryParser {
             return node
         }
     }
-
-    @inline(__always)
-    func isLetter(_ ch: Character) -> Bool { ch.isLetter || ch.isNumber || ch == "_" }
 }

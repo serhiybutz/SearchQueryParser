@@ -9,7 +9,7 @@
 
 # SearchQueryParser
 
-`SearchQueryParser` is a simple Google-like search-engine-query [parser](https://en.wikipedia.org/wiki/Parsing#Parser) for Swift. It takes a search string and builds its [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree).
+`SearchQueryParser` is a simple Google-like search-engine-query [parser](https://en.wikipedia.org/wiki/Parsing#Parser) (and marker) for Swift. It takes a search string and builds its [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree). This package is applicable for use with Apple's [Search Kit](https://developer.apple.com/documentation/coreservices/search_kit) for highlighting of found results.
 
 ![](demo.gif)
 
@@ -19,9 +19,10 @@
 - Boolean-like syntax support (AND ("&"), OR ("|"), NOT ("!") logical operators)
 - Prefix and suffix wildcards ("*")
 - Phrase searches
-- Tolerant to syntax errors
+- Tolerant to search query syntax errors
+- Provides facilities to locate search terms within an input text
 
-## Search Query Grammar
+## Search query grammar
 
 Backus–Naur form (BNF):
 
@@ -48,8 +49,9 @@ Alpha = ? alpha-character ? ;
 Digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
 ```
 
-## How
+## Use cases
 
+### Print out a search query's abstract syntax tree
 ```swift
 import SearchQueryParser
 
@@ -63,6 +65,31 @@ func printQueryAST(_ query: String) {
 }
 
 printQueryAST("foo bar")
+```
+
+### Highlight search query matches
+```swift
+import SearchQueryParser
+
+func highlightSearchQueryMatches(query: String, in text: NSMutableAttributedString) {
+    guard let queryTerms = SearchQueryParser(query)
+    else {
+        print("No matches found")
+        return
+    }
+    let tokensProvider = SearchTextScanner(text.string)
+    guard let applicator = SearchQueryApplicator(searchQueryTerms: queryTerms,
+                                                 textTokens: tokensProvider)
+    else {
+        print("Nothing was marked")
+        return
+    }
+    applicator.markedRanges.forEach { range in
+        text.addAttribute(.backgroundColor, value: NSColor.yellow, range: range)
+    }
+}
+let text = NSMutableAttributedString(string: "Lorem ipsum ...")
+highlightSearchQueryMatches(query: "foo & bar", in: text)
 ```
 
 ## Installation
