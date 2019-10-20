@@ -2,6 +2,7 @@
     <img src="https://img.shields.io/badge/Swift-4.2-orange" alt="Swift" />
     <img src="https://img.shields.io/badge/platform-osx|ios-orange" alt="Platform" />
     <img src="https://img.shields.io/badge/pod-compatible-orange" alt="CocoaPods" />
+    <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-orange" alt="SPM" />
     <a href="https://github.com/SergeBouts/SearchQueryParser/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/licence-MIT-orange" alt="License" />
     </a>
@@ -93,6 +94,21 @@ highlightSearchQueryMatches(query: "foo & bar", in: text)
 ```
 
 ## Installation
+
+### Swift Package as dependency in Xcode 11+
+
+1. Go to "File" -> "Swift Packages" -> "Add Package Dependency"
+2. Paste Search Query Parser repository URL into the search field:
+
+`https://github.com/SergeBouts/SearchQueryParser.git`
+
+3. Click "Next"
+
+4. Ensure that the "Rules" field is set to something like this: "Version: Up To Next Major: 1.2.0"
+
+5. Click "Next" to finish
+
+For more info, check out [here](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
 
 ### CocoaPods
 
