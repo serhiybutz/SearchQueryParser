@@ -3,7 +3,7 @@
     <img src="https://img.shields.io/badge/platform-osx|ios-orange" alt="Platform" />
     <img src="https://img.shields.io/badge/pod-compatible-orange" alt="CocoaPods" />
     <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-orange" alt="SPM" />
-    <a href="https://github.com/SergeBouts/SearchQueryParser/blob/master/LICENSE">
+    <a href="https://github.com/SerhiyButz/SearchQueryParser/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/licence-MIT-orange" alt="License" />
     </a>
 </p>
@@ -100,11 +100,11 @@ highlightSearchQueryMatches(query: "foo & bar", in: text)
 1. Go to "File" -> "Swift Packages" -> "Add Package Dependency"
 2. Paste Search Query Parser repository URL into the search field:
 
-`https://github.com/SergeBouts/SearchQueryParser.git`
+`https://github.com/SerhiyButz/SearchQueryParser.git`
 
 3. Click "Next"
 
-4. Ensure that the "Rules" field is set to something like this: "Version: Up To Next Major: 1.2.0"
+4. Ensure that the "Rules" field is set to something like this: "Version: Up To Next Major: 1.3.0"
 
 5. Click "Next" to finish
 
@@ -121,7 +121,7 @@ platform :osx, '10.12'
 
 target 'YOUR-TARGET' do
   use_frameworks!
-  pod 'SearchQueryParser', :git => 'https://github.com/SergeBouts/SearchQueryParser.git'
+  pod 'SearchQueryParser', :git => 'https://github.com/SerhiyButz/SearchQueryParser.git'
 end
 ```
 
